@@ -1,5 +1,5 @@
 //colors
-@import './externalVariables';
+@import './colorVariables';
 // font-family
 @import './fontVariables';
 //externalVariables
@@ -8,4 +8,34 @@
 * {
   margin: 0;
   box-sizing: border-box;
+  font-family: $font;
+}
+
+p {
+  font-family: $font;
+
+}
+h1 {
+  font-family: $font;
+}
+
+h2 {
+  font-family: $font;
+}
+
+h3 {
+  font-family: $font;
+}
+h4 {
+  font-family: $font;
+}
+h5 {
+  font-family: $font;
+}
+h6 {
+  font-family: $font;
+}
+
+a {
+  font-family: $font;
 }
