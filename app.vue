@@ -1,7 +1,22 @@
 <template>
-  <div>
+  <div class="app-container">
     <NuxtLayout>
-      <NuxtPage  />
+      <div class="app-container-view">
+        <NuxtPage   />
+      </div>
     </NuxtLayout>
   </div>
 </template>
+
+<style lang="scss">
+
+.app-container {
+	min-height: 100vh;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	&-view{
+		flex: 1;
+	}
+}
+</style>
