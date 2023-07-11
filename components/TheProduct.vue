@@ -54,6 +54,7 @@ const props = defineProps({
       font-size: $body-font-size;
       font-weight: 700;
       color: $red;
+      text-transform: capitalize;
     }
   }
 }
