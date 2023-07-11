@@ -34,12 +34,13 @@ const networks = [
       </a>
     </div>
   </footer>
+  <YeyoDev />
 </template>
 
 <style lang="scss" scoped>
 .footer {
   max-width: $desktop-upper-breakpoint;
-  padding: 12px;
+  padding: 16px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
