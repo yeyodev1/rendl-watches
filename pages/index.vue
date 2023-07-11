@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import TheHero from './home/TheHero.vue';
-import ProductSection from './home/ProductSection.vue';
-import TheCta from './home/TheCta.vue';
-import ProductsInOffer from './home/ProductsInOffer.vue';
+import TheHero from '@/components/home/TheHero.vue';
+import ProductSection from '@/components/home/ProductSection.vue';
+import TheCta from '@/components/home/TheCta.vue';
+import ProductsInOfferSection from '@/components/home/ProductsInOfferSection.vue';
 </script>
 
 <template>
   <TheHero />
   <ProductSection />
   <TheCta />
-  <ProductsInOffer />
+  <ProductsInOfferSection />
 </template>
