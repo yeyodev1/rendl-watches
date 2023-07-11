@@ -45,6 +45,7 @@ const networks = [
   justify-content: center;
   align-items: center;
   gap: 48px 24px;
+  margin-top: 80px;
   @media(min-width: $tablet-lower-breakpoint) {
     justify-content: space-around;
   }
