@@ -3,7 +3,7 @@
     <img 
       class="header-logo"
       src="@/assets/images/logo.png" 
-      alt="rendl importadora">
+      alt="rendl importadora" />
       <div class="header-options">
         <a href="/">Hombre</a>
         <a href="/">Mujer</a>
@@ -13,6 +13,9 @@
 
 <style lang="scss" scoped>
 .header {
+  width: 100%;
+  max-width: $desktop-upper-breakpoint;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
