@@ -10,6 +10,7 @@
 
 <style lang="scss">
 .app-container {
+  background-color: $white;
 	min-height: 100vh;
 	width: 100%;
 	display: flex;
