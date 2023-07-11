@@ -1,17 +1,32 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const props = defineProps({
+  product: {
+    type: String,
+    required: true
+  },
+  price: {
+    type: String,
+    required: true
+  },
+  image: {
+    type: String, 
+    required: true,
+  }
+})
+</script>
 
 <template>
   <div class="card">
     <img  
       class="card-image"
-      src="https://i.pinimg.com/564x/38/40/f1/3840f1da0f70a97b2db4d6642f21a36a.jpg" 
+      :src="image" 
       alt="reloj negro fossil">
     <div class="card-details">
       <p class="card-details-name">
-        Reloj fossil negro 45mm
+        {{product}}
       </p>
       <p class="card-details-price">
-        $100
+        ${{price}}
       </p>
     </div>
   </div>
@@ -19,9 +34,13 @@
 
 <style lang="scss" scoped>
 .card {
+  width: 100%;
+  max-width: 208px;
   &-image {
     height: 304px;
-    width: 280px;
+    width: 100%;
+    object-fit: cover;
+    object-position: top center;
   }
   &-details {
     display: flex;
