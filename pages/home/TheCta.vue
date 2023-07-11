@@ -64,9 +64,9 @@ import CrushButton from '@nabux-crush/crush-button';
     display: flex;
     flex-direction: column;
     gap: 40px;
-    padding: 80px;
-    @media(min-width: $tablet-lower-breakpoint) {
-      padding: 80px 120px;
+    padding: 20px;
+    @media(min-width: $desktop-lower-breakpoint) {
+      padding: 0px 120px;
     }
     &-button {
       background-color: $black;
