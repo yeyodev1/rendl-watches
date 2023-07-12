@@ -3,6 +3,7 @@ const products = [
   {
     name: 'Reloj ultraviolento',
     price: '50',
+    oldPrice: '1000',
     image: 'https://i.pinimg.com/564x/38/40/f1/3840f1da0f70a97b2db4d6642f21a36a.jpg'
   },
   {
@@ -13,6 +14,7 @@ const products = [
   {
     name: 'Reloj ultraviolento',
     price: '50',
+    oldPrice: '400',
     image: 'https://i.pinimg.com/564x/38/40/f1/3840f1da0f70a97b2db4d6642f21a36a.jpg'
   },
   {
@@ -61,7 +63,8 @@ const products = [
         :key="index"
         :image="product.image"
         :product="product.name" 
-        :price="product.price"/>
+        :price="product.price"
+        :oldPrice="product.oldPrice"/>
     </div>
   </div>
 </template>
