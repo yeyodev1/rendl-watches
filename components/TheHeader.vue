@@ -1,9 +1,11 @@
 <template>
   <header class="header">
-    <img 
-      class="header-logo"
-      src="@/assets/images/logo.png" 
-      alt="rendl importadora" />
+    <NuxtLink to="/">
+      <img 
+        class="header-logo"
+        src="@/assets/images/logo.png" 
+        alt="rendl importadora" />
+    </NuxtLink>
       <div class="header-options">
         <a href="/">Hombre</a>
         <a href="/">Mujer</a>
