@@ -7,8 +7,8 @@
         alt="rendl importadora" />
     </NuxtLink>
       <div class="header-options">
-        <a href="/">Hombre</a>
-        <a href="/">Mujer</a>
+        <NuxtLink to="/">Inicio</NuxtLink>
+        <NuxtLink href="/">Mujer</NuxtLink>
       </div>
   </header>
 </template>
@@ -29,9 +29,10 @@
     display: flex;
     gap: 12px;
     padding: 12px;
-    a {
+    * {
       text-decoration: none;
       color: $black;
+      font-weight: 700;
     }
   }
 }
