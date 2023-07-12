@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import TheProduct from '@/components/TheProduct.vue';
 const products = [
   {
     image: 'https://i.pinimg.com/236x/51/e4/e5/51e4e57298fb43f902f5c564b5b14646.jpg',
@@ -33,7 +34,7 @@ const products = [
       Relojes en oferta
     </p>
     <div class="section-products">
-      <TheProductInOffer 
+      <TheProduct 
         v-for="(product, index) in products"
         :key="index"
         :image="product.image"
