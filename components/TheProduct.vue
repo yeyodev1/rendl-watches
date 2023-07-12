@@ -1,5 +1,9 @@
 <script setup lang="ts">
 const props = defineProps({
+  image: {
+    type: String, 
+    required: true,
+  },
   product: {
     type: String,
     required: true
@@ -8,10 +12,10 @@ const props = defineProps({
     type: String,
     required: true
   },
-  image: {
-    type: String, 
-    required: true,
-  }
+  oldPrice: {
+    type: String,
+    required: false,
+  },
 })
 </script>
 
@@ -26,7 +30,13 @@ const props = defineProps({
         {{product}}
       </p>
       <p class="card-details-price">
+        <span class="card-details-price-offer" v-if="oldPrice">
+          Oferta
+        </span>
         ${{price}}
+        <span class="card-details-price-last" v-if="oldPrice">
+          ${{oldPrice}}
+        </span>
       </p>
     </div>
   </div>
@@ -49,12 +59,26 @@ const props = defineProps({
     &-name {
       font-size: $body-font-size;
       color: $black;
+      text-transform: capitalize;
     }
     &-price {
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+      gap: 4px;
       font-size: $body-font-size;
       font-weight: 700;
-      color: $red;
-      text-transform: capitalize;
+      color: $black;
+      &-offer {
+        background-color: $red;
+        color: $white;
+        padding: 4px 8px;
+        border-radius: 4px;
+      }
+      &-last {
+        color: $gray;
+        text-decoration: line-through;
+      }
     }
   }
 }
