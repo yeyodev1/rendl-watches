@@ -9,10 +9,12 @@ import CrushButton from '@nabux-crush/crush-button';
     </div>
     <div class="section-calltoaction">
       <img src="@/assets/images/logo.png" alt="rendl importadora">
-      <CrushButton
-      class="section-calltoaction-button"
-      variant="primary"
-      text="Ver relojes"/>
+      <NuxtLink to="/watches">
+        <CrushButton
+        class="section-calltoaction-button"
+        variant="primary"
+        text="Ver relojes"/>
+      </NuxtLink>
     </div>
     <div class="section-option option2"> 
       <NuxtLink>hombre</NuxtLink>
@@ -79,6 +81,9 @@ import CrushButton from '@nabux-crush/crush-button';
       background-color: $black;
       color: $white;
       border: none;
+      &:hover{
+        background-color: gray;
+      }
     }
   }
 }
