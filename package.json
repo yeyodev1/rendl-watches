@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev",
+    "dev": "NODE_TLS_REJECT_UNAUTHORIZED=0 nuxt dev --https --ssl-cert localhost.pem --ssl-key localhost-key.pem",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
@@ -18,6 +18,8 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.4.0",
     "@nabux-crush/crush-button": "^1.0.32",
-    "@nabux-crush/crush-styles": "^0.0.21"
+    "@nabux-crush/crush-styles": "^0.0.21",
+    "@storyblok/nuxt": "^5.5.2",
+    "mkcert": "^1.5.1"
   }
 }
