@@ -1,5 +1,17 @@
 <script setup lang="ts">
 const props = defineProps({
+  aditionalImage: {
+    type: String,
+    required: false,
+  },
+  aditionalImage2: {
+    type: String,
+    required: false,
+  },
+  aditionalImage3: {
+    type: String,
+    required: false,
+  },
   image: {
     type: String, 
     required: true,
@@ -17,32 +29,62 @@ const props = defineProps({
     required: false,
   },
 })
+
+
+const route = useRoute();
+const isWatchRoute = computed(() => {
+  return route.path === '/watches/watch/*'
+})
 </script>
 
 <template>
-  <div class="card">
-    <img  
-      class="card-image"
-      :src="image" 
-      alt="reloj negro fossil">
-    <div class="card-details">
-      <p class="card-details-name">
-        {{product}}
-      </p>
-      <p class="card-details-price">
-        <span class="card-details-price-offer" v-if="oldPrice">
-          Oferta
-        </span>
-        ${{price}}
-        <span class="card-details-price-last" v-if="oldPrice">
-          ${{oldPrice}}
-        </span>
-      </p>
+  <NuxtLink 
+    class="link"
+    to="/">
+    <div class="card">
+      <img
+        class="card-image" 
+        :src="image" 
+        alt="">
+      <div 
+        v-if="isWatchRoute"
+        class="card-container-images">
+        <img
+          class="card-container-images-2"
+          :src="aditionalImage"
+          alt="">
+        <img 
+          class="card-container-images-3"
+          :src="aditionalImage2"
+          alt="">
+        <img 
+          class="card-container-images-4"
+          :src="aditionalImage3"
+          alt="">
+      </div>
+      <div class="card-details">
+        <p class="card-details-name">
+          {{product}}
+        </p>
+        <p class="card-details-price">
+          <span class="card-details-price-offer" v-if="oldPrice">
+            Oferta
+          </span>
+          ${{price}}
+          <span class="card-details-price-last" v-if="oldPrice">
+            ${{oldPrice}}
+          </span>
+        </p>
+      </div>
     </div>
-  </div>
+  </NuxtLink>
 </template>
 
 <style lang="scss" scoped>
+
+.link {
+  text-decoration: none;
+}
 .card {
   width: 100%;
   max-width: 208px;
@@ -51,6 +93,14 @@ const props = defineProps({
     width: 100%;
     object-fit: cover;
     object-position: top center;
+  }
+  &-container-images {
+    display: flex;
+    gap: 5%;
+    &-2, &-3, &-4 {
+      width: 30%;
+      height: 88px;
+    }
   }
   &-details {
     display: flex;
