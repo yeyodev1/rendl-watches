@@ -21,6 +21,7 @@ export default defineNuxtConfig({
           `
         }
       },
-    }
-  }
+    },
+  },
+  modules: [['@storybook/nuxt', { accesToken: 'AhQR1WFGC3nEJEeDsjlDLAtt' }]],
 })
