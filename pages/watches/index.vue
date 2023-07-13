@@ -10,5 +10,4 @@ import AllProducts from '@/components/watches/AllProducts.vue';
   </div>
 </template>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>
