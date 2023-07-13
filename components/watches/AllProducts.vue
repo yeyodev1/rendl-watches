@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import TheProduct from '@/components/TheProduct.vue';
+
 const products = [
   {
     name: 'Reloj ultraviolento',
@@ -59,8 +61,12 @@ const products = [
       <TheProduct
         v-for="(product, index) in products"
         :key="index"
+        :aditionalImage="products?.aditionalImage"
+        :aditionalImage2="products?.aditionalImage2"
+        :aditionalImage3="products?.aditionalImage3"
         :image="product.image"
         :product="product.name" 
+        :oldPrice="product.oldPrice"
         :price="product.price"/>
     </div>
   </div>
