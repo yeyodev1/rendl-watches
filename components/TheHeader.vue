@@ -7,8 +7,8 @@
         alt="rendl importadora" />
     </NuxtLink>
       <div class="header-options">
-        <NuxtLink to="/">Inicio</NuxtLink>
-        <NuxtLink href="/">Mujer</NuxtLink>
+        <NuxtLink to="/menwatches">Hombre</NuxtLink>
+        <NuxtLink to="/womanwatches">Mujer</NuxtLink>
       </div>
   </header>
 </template>
