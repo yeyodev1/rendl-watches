@@ -1,13 +1,19 @@
-import { fileURLToPath } from "url";
+import { fileURLToPath } from 'url';
 
-// https://nuxt.com/docs/api/configuration/nuxt-config
-export default defineNuxtConfig({
+const config = defineNuxtConfig({
   devtools: { enabled: true },
   alias: {
     '@': fileURLToPath(new URL('./', import.meta.url))
   },
+  // build: {
+  //     transpile: [
+  //     '@fortawesome/fontawesome-free/scss/fontawesome.scss',
+  //     '@fortawesome/fontawesome-free/scss/solid.scss',
+  //     '@fortawesome/fontawesome-free/scss/regular.scss',
+  //     '@fortawesome/fontawesome-free/scss/brands.scss',
+  //   ]
+  // },
   vite: {
-    plugins: [],
     css: {
       preprocessorOptions: {
         scss: {
@@ -17,11 +23,13 @@ export default defineNuxtConfig({
             @import '@fortawesome/fontawesome-free/scss/regular.scss';
             @import '@fortawesome/fontawesome-free/scss/brands.scss';
             @import '@nabux-crush/crush-styles/nabuxInternalVariables';
-            @import '@/styles/styles.scss';
+            @import '@/styles/_styles.scss';
           `
         }
-      },
-    },
+      }
+    }
   },
   // modules: [['@storyblok/nuxt', { accessToken: 'AhQR1WFGC3nEJEeDsjlDLAtt' }]],
-})
+});
+
+export default config;
