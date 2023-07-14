@@ -2,3 +2,53 @@
 
 // typography 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('/webfonts/fa-brands-400.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('/webfonts/fa-brands-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('/webfonts/fa-regular-400.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('/webfonts/fa-regular-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('/webfonts/fa-solid-900.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('/webfonts/fa-solid-900.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('/webfonts/fa-v4compatibility.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('/webfonts/fa-v4compatibility.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
