@@ -5,7 +5,7 @@ import CrushButton from '@nabux-crush/crush-button';
 <template>
   <div class="section">
     <div class="section-option option1">
-      <NuxtLink>Mujer</NuxtLink>
+      <NuxtLink class="option1-option" to="/womanwatches">Mujer</NuxtLink>
     </div>
     <div class="section-calltoaction">
       <img src="@/assets/images/logo.png" alt="rendl importadora">
@@ -17,7 +17,7 @@ import CrushButton from '@nabux-crush/crush-button';
       </NuxtLink>
     </div>
     <div class="section-option option2"> 
-      <NuxtLink>hombre</NuxtLink>
+      <NuxtLink class="option2-option" to="/menwatches">hombre</NuxtLink>
     </div>
   </div>
 </template>
@@ -48,6 +48,9 @@ import CrushButton from '@nabux-crush/crush-button';
       color: $white;
       font-size: $h2-font-size;
     }
+    &-option {
+      text-decoration: none;
+    }
   }
   &-option {
     padding: 80px 120px;
@@ -67,6 +70,9 @@ import CrushButton from '@nabux-crush/crush-button';
       font-weight: 700;
       color: $white;
       font-size: $h2-font-size;
+    }
+    &-option {
+      text-decoration: none;
     }
   }
   &-calltoaction {
