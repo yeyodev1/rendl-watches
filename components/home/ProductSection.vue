@@ -1,26 +1,26 @@
 <script setup lang="ts">
-// const products = [
-//   {
-//     name: 'Reloj ultraviolento',
-//     price: '50',
-//     image: 'https://i.pinimg.com/564x/38/40/f1/3840f1da0f70a97b2db4d6642f21a36a.jpg'
-//   },
-//   {
-//     name: 'Reloj ultraviolento',
-//     price: '50',
-//     image: 'https://i.pinimg.com/564x/38/40/f1/3840f1da0f70a97b2db4d6642f21a36a.jpg'
-//   },
-//   {
-//     name: 'Reloj ultraviolento',
-//     price: '50',
-//     image: 'https://i.pinimg.com/564x/38/40/f1/3840f1da0f70a97b2db4d6642f21a36a.jpg'
-//   },
-//   {
-//     name: 'Reloj ultraviolento',
-//     price: '50',
-//     image: 'https://i.pinimg.com/564x/38/40/f1/3840f1da0f70a97b2db4d6642f21a36a.jpg'
-//   },
-// ]
+const products = [
+  {
+    name: 'Reloj ultraviolento',
+    price: '50',
+    image: 'https://i.pinimg.com/564x/38/40/f1/3840f1da0f70a97b2db4d6642f21a36a.jpg'
+  },
+  {
+    name: 'Reloj ultraviolento',
+    price: '50',
+    image: 'https://i.pinimg.com/564x/38/40/f1/3840f1da0f70a97b2db4d6642f21a36a.jpg'
+  },
+  {
+    name: 'Reloj ultraviolento',
+    price: '50',
+    image: 'https://i.pinimg.com/564x/38/40/f1/3840f1da0f70a97b2db4d6642f21a36a.jpg'
+  },
+  {
+    name: 'Reloj ultraviolento',
+    price: '50',
+    image: 'https://i.pinimg.com/564x/38/40/f1/3840f1da0f70a97b2db4d6642f21a36a.jpg'
+  },
+]
 
 // const { data, error } = await useAsyncData(
   
