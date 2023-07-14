@@ -23,4 +23,5 @@ export default defineNuxtConfig({
       },
     },
   },
+  // modules: [['@storyblok/nuxt', { accessToken: 'AhQR1WFGC3nEJEeDsjlDLAtt' }]],
 })
