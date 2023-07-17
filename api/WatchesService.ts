@@ -1,10 +1,11 @@
 import Storyblok from './StoryblokBaseService';
 
 export default class WatchesService {
-  async getWatches() {
-    const response = await Storyblok.get(`stories`, {
+  async getWatches(gender: string) {
+    console.log(Storyblok)
+    const response = await Storyblok.get('cdn/stories', {
       version: 'published',
-      starts_with: 'men'
+      starts_with: gender,
     })
     return response
   }
