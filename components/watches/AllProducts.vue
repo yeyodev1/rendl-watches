@@ -2,6 +2,7 @@
 import { onMounted } from 'vue';
 import useWatchStore from '@/store/WatchStore';
 import TheProduct from '@/components/TheProduct.vue';
+import { Watch } from '@/enum/Watch';
 
 const props = defineProps({
   title: {
@@ -12,8 +13,8 @@ const props = defineProps({
 
 const watchStore = useWatchStore();
 onMounted(async() => {
-  await watchStore.getWatches('men');
-  await watchStore.getWatches('woman');
+  await watchStore.getWatches(Watch.MEN);
+  await watchStore.getWatches(Watch.WOMEN);
 })
 </script>
 

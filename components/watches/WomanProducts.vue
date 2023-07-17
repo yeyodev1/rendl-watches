@@ -2,10 +2,11 @@
 import { onMounted } from 'vue';
 import useWatchStore from '@/store/WatchStore';
 import TheProduct from '@/components/TheProduct.vue';
+import { Watch } from '@/enum/Watch';
 
 const watchStore = useWatchStore();
 onMounted(async() => {
-  await watchStore.getWatches('woman');
+  await watchStore.getWatches(Watch.WOMEN);
 })
 </script>
 

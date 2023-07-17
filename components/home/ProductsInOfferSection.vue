@@ -1,31 +1,14 @@
 <script setup lang="ts">
+import { onMounted } from 'vue';
+import useWatchStore from '@/store/WatchStore';
 import TheProduct from '@/components/TheProduct.vue';
-const products = [
-  {
-    image: 'https://i.pinimg.com/236x/51/e4/e5/51e4e57298fb43f902f5c564b5b14646.jpg',
-    name: 'Relok de la muerte',
-    price: '100',
-    oldPrice: '500',
-  },
-  {
-    image: 'https://i.pinimg.com/236x/51/e4/e5/51e4e57298fb43f902f5c564b5b14646.jpg',
-    name: 'Relok de la muerte',
-    price: '100',
-    oldPrice: '500',
-  },
-  {
-    image: 'https://i.pinimg.com/236x/51/e4/e5/51e4e57298fb43f902f5c564b5b14646.jpg',
-    name: 'Relok de la muerte',
-    price: '100',
-    oldPrice: '500',
-  },
-  {
-    image: 'https://i.pinimg.com/236x/51/e4/e5/51e4e57298fb43f902f5c564b5b14646.jpg',
-    name: 'Relok de la muerte',
-    price: '100',
-    oldPrice: '500',
-  },
-]
+import { Watch } from '@/enum/Watch';
+
+const watchStore = useWatchStore();
+onMounted(async() => {
+  await watchStore.getWatches(Watch.MEN);
+  await watchStore.getWatches(Watch.WOMEN);
+})
 </script>
 
 <template>
@@ -34,13 +17,14 @@ const products = [
       Relojes en oferta
     </p>
     <div class="section-products">
-      <TheProduct 
-        v-for="(product, index) in products"
+      <TheProduct
+        v-for="(product, index) in watchStore.offerWatches"
         :key="index"
-        :image="product.image"
-        :product="product.name"
-        :price="product.price" 
-        :oldPrice="product.oldPrice" />
+        :image="product.content.image[0].filename"
+        :product="product.content.name" 
+        :price="product.content.price"
+        :oldPrice="product.content?.old_price"
+        :slug="product.full_slug"/>
     </div>
   </div>
 </template>
