@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { onMounted } from 'vue';
 import useWatchStore from '@/store/WatchStore';
+import TheProduct from '@/components/TheProduct.vue';
 
 const watchStore = useWatchStore();
 const products = [
@@ -25,9 +26,9 @@ const products = [
     image: 'https://i.pinimg.com/564x/38/40/f1/3840f1da0f70a97b2db4d6642f21a36a.jpg'
   },
 ]
-
 onMounted(async() => {
   await watchStore.getWatches();
+  console.log('nos montamos')
 })
 </script>
 

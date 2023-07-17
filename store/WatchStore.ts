@@ -10,7 +10,8 @@ const useWatchStore = defineStore('useWatchStore', {
   actions: {
     async getWatches() {
       try {
-        const products = await watchesService.getWatches()
+        const products = await watchesService.getWatches();
+        console.log('hello')
       } catch (error) {
         console.error(error)
       }

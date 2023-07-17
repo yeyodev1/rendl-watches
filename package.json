@@ -23,7 +23,8 @@
     "@pinia/nuxt": "^0.4.11",
     "@storyblok/nuxt": "^5.5.2",
     "mkcert": "^1.5.1",
-    "pinia": "^2.1.4"
+    "pinia": "^2.1.4",
+    "storyblok-js-client": "^5.12.0"
   },
   "overrides": {
     "vue": "latest"

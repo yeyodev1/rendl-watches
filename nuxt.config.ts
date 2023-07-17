@@ -22,8 +22,12 @@ const config = defineNuxtConfig({
       }
     },
   },
+  runtimeConfig: {
+    storyblok: process.env.STORYBLOK_VARIABLE
+  },
   modules: [
-    '@pinia/nuxt'
+    '@pinia/nuxt',
+    // [ '@storyblok/nuxt', { accessToken: 'AhQR1WFGC3nEJEeDsjlDLAtt' } ]
   ],
 });
 

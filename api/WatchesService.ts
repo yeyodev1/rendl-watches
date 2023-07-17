@@ -1,8 +1,11 @@
-import { AxiosResponse } from 'axios';
-import BaseService from './BaseService';
+import Storyblok from './StoryblokBaseService';
 
-export default class WatchesService extends BaseService {
-  getWatches(): Promise<AxiosResponse> {
-    return this.apiClient.get(`${this.apiBaseRoute}/stories`)
+export default class WatchesService {
+  async getWatches() {
+    const response = await Storyblok.get(`stories`, {
+      version: 'published',
+      starts_with: 'men'
+    })
+    return response
   }
 }
