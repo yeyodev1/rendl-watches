@@ -44,7 +44,7 @@ const isWatchRoute = computed(() => {
 <template>
   <NuxtLink 
     class="link"
-    :to="`/${slug}`">
+    :to="`watches/${slug}`">
     <div class="card">
       <img
         class="card-image" 
