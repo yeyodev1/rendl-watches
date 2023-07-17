@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import { onMounted } from 'vue';
+import useWatchStore from '@/store/WatchStore';
+
+const watchStore = useWatchStore();
 const products = [
   {
     name: 'Reloj ultraviolento',
@@ -22,9 +26,9 @@ const products = [
   },
 ]
 
-// const { data, error } = await useAsyncData(
-  
-// )
+onMounted(async() => {
+  await watchStore.getWatches();
+})
 </script>
 
 <template>

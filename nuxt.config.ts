@@ -22,7 +22,9 @@ const config = defineNuxtConfig({
       }
     },
   },
-  // modules: [['@storyblok/nuxt', { accessToken: 'AhQR1WFGC3nEJEeDsjlDLAtt' }]],
+  modules: [
+    '@pinia/nuxt'
+  ],
 });
 
 export default config;
