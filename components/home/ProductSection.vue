@@ -4,31 +4,10 @@ import useWatchStore from '@/store/WatchStore';
 import TheProduct from '@/components/TheProduct.vue';
 
 const watchStore = useWatchStore();
-const products = [
-  {
-    name: 'Reloj ultraviolento',
-    price: '50',
-    image: 'https://i.pinimg.com/564x/38/40/f1/3840f1da0f70a97b2db4d6642f21a36a.jpg'
-  },
-  {
-    name: 'Reloj ultraviolento',
-    price: '50',
-    image: 'https://i.pinimg.com/564x/38/40/f1/3840f1da0f70a97b2db4d6642f21a36a.jpg'
-  },
-  {
-    name: 'Reloj ultraviolento',
-    price: '50',
-    image: 'https://i.pinimg.com/564x/38/40/f1/3840f1da0f70a97b2db4d6642f21a36a.jpg'
-  },
-  {
-    name: 'Reloj ultraviolento',
-    price: '50',
-    image: 'https://i.pinimg.com/564x/38/40/f1/3840f1da0f70a97b2db4d6642f21a36a.jpg'
-  },
-]
+
+
 onMounted(async() => {
-  await watchStore.getWatches();
-  console.log('nos montamos')
+  await watchStore.getWatches('men');
 })
 </script>
 
@@ -37,11 +16,11 @@ onMounted(async() => {
     <p class="product-section-title">Nuevos en la colección</p>
     <div class="product-section">
       <TheProduct
-        v-for="(product, index) in products"
+        v-for="(product, index) in watchStore.manWatches"
         :key="index"
-        :image="product.image"
-        :product="product.name" 
-        :price="product.price"/>
+        :image="product.content.image[0].filename"
+        :product="product.content.name" 
+        :price="product.content.price"/>
     </div>
   </div>
 </template>

@@ -5,13 +5,13 @@ const watchesService = new WatchesService();
 
 const useWatchStore = defineStore('useWatchStore', {
   state: () => ({
-    products: []
+    manWatches: []
   }),
   actions: {
-    async getWatches() {
+    async getWatches(gender: string) {
       try {
-        const products = await watchesService.getWatches();
-        console.log('hello')
+        const products = await watchesService.getWatches(gender);
+        this.manWatches = products.data.stories
       } catch (error) {
         console.error(error)
       }
