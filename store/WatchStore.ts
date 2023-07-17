@@ -5,15 +5,22 @@ const watchesService = new WatchesService();
 
 const useWatchStore = defineStore('useWatchStore', {
   state: () => ({
-    manWatches: []
+    manWatches: [],
+    womanWatches: [],
+    allWatches: [],
   }),
   actions: {
     async getWatches(gender: string) {
       try {
         const products = await watchesService.getWatches(gender);
-        this.manWatches = products.data.stories
+        if (gender === 'men') {
+          this.manWatches = products.data.stories;
+        } else if (gender === 'woman') {
+          this.womanWatches = products.data.stories;
+        }
+        this.allWatches =  [...this.manWatches, ...this.womanWatches];
       } catch (error) {
-        console.error(error)
+        console.error(error);
       }
     }
   }
