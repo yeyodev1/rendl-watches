@@ -1,6 +1,7 @@
 <template>
   <div class="app-container">
     <TheHeader />
+    <TheMenu />
     <div class="app-container-view">
       <slot  />
     </div>
