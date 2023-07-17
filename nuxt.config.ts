@@ -3,16 +3,9 @@ import { fileURLToPath } from 'url';
 const config = defineNuxtConfig({
   devtools: { enabled: true },
   alias: {
-    '@': fileURLToPath(new URL('./', import.meta.url))
+    '@': fileURLToPath(new URL('./', import.meta.url)),
+    '@nabux-crush/crush-button': require.resolve('@nabux-crush/crush-button')
   },
-  // build: {
-  //     transpile: [
-  //     '@fortawesome/fontawesome-free/scss/fontawesome.scss',
-  //     '@fortawesome/fontawesome-free/scss/solid.scss',
-  //     '@fortawesome/fontawesome-free/scss/regular.scss',
-  //     '@fortawesome/fontawesome-free/scss/brands.scss',
-  //   ]
-  // },
   vite: {
     css: {
       preprocessorOptions: {
@@ -27,7 +20,7 @@ const config = defineNuxtConfig({
           `
         }
       }
-    }
+    },
   },
   // modules: [['@storyblok/nuxt', { accessToken: 'AhQR1WFGC3nEJEeDsjlDLAtt' }]],
 });
