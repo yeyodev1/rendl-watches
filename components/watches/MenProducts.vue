@@ -1,70 +1,25 @@
 <script setup lang="ts">
-const products = [
-  {
-    product: 'Reloj ultraviolento',
-    price: '50',
-    oldPrice: '1000',
-    image: 'https://i.pinimg.com/564x/38/40/f1/3840f1da0f70a97b2db4d6642f21a36a.jpg'
-  },
-  {
-    product: 'Reloj ultraviolento',
-    price: '50',
-    image: 'https://i.pinimg.com/564x/38/40/f1/3840f1da0f70a97b2db4d6642f21a36a.jpg'
-  },
-  {
-    product: 'Reloj ultraviolento',
-    price: '50',
-    oldPrice: '400',
-    image: 'https://i.pinimg.com/564x/38/40/f1/3840f1da0f70a97b2db4d6642f21a36a.jpg'
-  },
-  {
-    product: 'Reloj ultraviolento',
-    price: '50',
-    image: 'https://i.pinimg.com/564x/38/40/f1/3840f1da0f70a97b2db4d6642f21a36a.jpg'
-  },
-  {
-    product: 'Reloj ultraviolento',
-    price: '50',
-    image: 'https://i.pinimg.com/564x/38/40/f1/3840f1da0f70a97b2db4d6642f21a36a.jpg'
-  },
-  {
-    product: 'Reloj ultraviolento',
-    price: '50',
-    image: 'https://i.pinimg.com/564x/38/40/f1/3840f1da0f70a97b2db4d6642f21a36a.jpg'
-  },
-  {
-    product: 'Reloj ultraviolento',
-    price: '50',
-    image: 'https://i.pinimg.com/564x/38/40/f1/3840f1da0f70a97b2db4d6642f21a36a.jpg'
-  },
-  {
-    product: 'Reloj ultraviolento',
-    price: '50',
-    image: 'https://i.pinimg.com/564x/38/40/f1/3840f1da0f70a97b2db4d6642f21a36a.jpg'
-  },
-  {
-    product: 'Reloj ultraviolento',
-    price: '50',
-    image: 'https://i.pinimg.com/564x/38/40/f1/3840f1da0f70a97b2db4d6642f21a36a.jpg'
-  },
-  {
-    product: 'Reloj ultraviolento',
-    price: '50',
-    image: 'https://i.pinimg.com/564x/38/40/f1/3840f1da0f70a97b2db4d6642f21a36a.jpg'
-  },
-]
+import { onMounted } from 'vue';
+import useWatchStore from '@/store/WatchStore';
+import TheProduct from '@/components/TheProduct.vue';
+
+const watchStore = useWatchStore();
+onMounted(async() => {
+  await watchStore.getWatches('men');
+})
 </script>
 
 <template>
   <div class="product">
     <div class="product-section">
       <TheProduct
-        v-for="(product, index) in products"
+        v-for="(product, index) in watchStore.manWatches"
         :key="index"
-        :image="product.image"
-        :product="product.product" 
-        :price="product.price"
-        :oldPrice="product.oldPrice"/>
+        :image="product.content.image[0].filename"
+        :product="product.content.name" 
+        :price="product.content.price"
+        :oldPrice="product.content?.old_price"
+        :slug="product.full_slug"/>
     </div>
   </div>
 </template>
