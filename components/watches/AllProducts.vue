@@ -1,71 +1,34 @@
 <script setup lang="ts">
-const products = [
-  {
-    name: 'Reloj ultraviolento',
-    price: '50',
-    image: 'https://i.pinimg.com/564x/38/40/f1/3840f1da0f70a97b2db4d6642f21a36a.jpg'
-  },
-  {
-    name: 'Reloj ultraviolento',
-    price: '50',
-    image: 'https://i.pinimg.com/564x/38/40/f1/3840f1da0f70a97b2db4d6642f21a36a.jpg'
-  },
-  {
-    name: 'Reloj ultraviolento',
-    price: '50',
-    image: 'https://i.pinimg.com/564x/38/40/f1/3840f1da0f70a97b2db4d6642f21a36a.jpg'
-  },
-  {
-    name: 'Reloj ultraviolento',
-    price: '50',
-    image: 'https://i.pinimg.com/564x/38/40/f1/3840f1da0f70a97b2db4d6642f21a36a.jpg'
-  },
-  {
-    name: 'Reloj ultraviolento',
-    price: '50',
-    image: 'https://i.pinimg.com/564x/38/40/f1/3840f1da0f70a97b2db4d6642f21a36a.jpg'
-  },
-  {
-    name: 'Reloj ultraviolento',
-    price: '50',
-    image: 'https://i.pinimg.com/564x/38/40/f1/3840f1da0f70a97b2db4d6642f21a36a.jpg'
-  },
-  {
-    name: 'Reloj ultraviolento',
-    price: '50',
-    image: 'https://i.pinimg.com/564x/38/40/f1/3840f1da0f70a97b2db4d6642f21a36a.jpg'
-  },
-  {
-    name: 'Reloj ultraviolento',
-    price: '50',
-    image: 'https://i.pinimg.com/564x/38/40/f1/3840f1da0f70a97b2db4d6642f21a36a.jpg'
-  },
-  {
-    name: 'Reloj ultraviolento',
-    price: '50',
-    image: 'https://i.pinimg.com/564x/38/40/f1/3840f1da0f70a97b2db4d6642f21a36a.jpg'
-  },
-  {
-    name: 'Reloj ultraviolento',
-    price: '50',
-    image: 'https://i.pinimg.com/564x/38/40/f1/3840f1da0f70a97b2db4d6642f21a36a.jpg'
-  },
-]
+import { onMounted } from 'vue';
+import useWatchStore from '@/store/WatchStore';
+import TheProduct from '@/components/TheProduct.vue';
+
+const props = defineProps({
+  title: {
+    type: String,
+    required: true,
+  }
+})
+
+const watchStore = useWatchStore();
+onMounted(async() => {
+  await watchStore.getWatches('men');
+  await watchStore.getWatches('woman');
+})
 </script>
 
 <template>
   <div class="product">
+    <p class="product-title">{{title}}</p>
     <div class="product-section">
       <TheProduct
-        v-for="(product, index) in products"
+        v-for="(product, index) in watchStore.allWatches"
         :key="index"
-        :aditionalImage="products?.aditionalImage"
-        :aditionalImage2="products?.aditionalImage2"
-        :aditionalImage3="products?.aditionalImage3"
-        :image="product.image"
-        :product="product.name" 
-        :oldPrice="product.oldPrice"
-        :price="product.price"/>
+        :image="product.content.image[0].filename"
+        :product="product.content.name" 
+        :price="product.content.price"
+        :oldPrice="product.content?.old_price"
+        :slug="product.full_slug"/>
     </div>
   </div>
 </template>
@@ -76,6 +39,11 @@ const products = [
   gap: 40px;
   display: flex;
   flex-direction: column;
+  &-title {
+    text-align: center;
+    font-weight: 700;
+    font-size: $h2-font-size;
+  }
   &-section {
     margin: 0 auto;
     max-width: $desktop-upper-breakpoint;
