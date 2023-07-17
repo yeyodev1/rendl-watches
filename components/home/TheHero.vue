@@ -47,7 +47,10 @@ const props = defineProps({
     transform: translateY(-50%);
     &-text {
       color: $white;
-      font-size: 4 * $body-font-size;
+      font-size: 3 * $body-font-size;
+      @media(min-width: $tablet-upper-breakpoint) {
+        font-size: 4 * $body-font-size;
+      }
       font-weight: 700;
       text-align: center;
     }
