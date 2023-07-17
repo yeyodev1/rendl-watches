@@ -34,6 +34,7 @@ const props = defineProps({
     display: block;
     object-fit: cover;
     object-position: center;
+    filter: brightness(0.5);
   }
   &-text {
     color: $white;
