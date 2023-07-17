@@ -6,7 +6,7 @@ import AllProducts from '@/components/watches/AllProducts.vue';
 <template>
   <div class="container">
     <TheHero image="https://i.pinimg.com/564x/53/bd/f0/53bdf0f70c7253ef9fc60319750de117.jpg" description="Todos los relojes"/>
-    <AllProducts />
+    <AllProducts title="Todos los relojes"/>
   </div>
 </template>
 
