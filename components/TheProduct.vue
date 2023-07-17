@@ -1,4 +1,5 @@
 <script setup lang="ts">
+
 const props = defineProps({
   aditionalImage: {
     type: String,
@@ -28,8 +29,11 @@ const props = defineProps({
     type: String,
     required: false,
   },
+  slug: {
+    type: String, 
+    required: true
+  }
 })
-
 
 const route = useRoute();
 const isWatchRoute = computed(() => {
@@ -40,7 +44,7 @@ const isWatchRoute = computed(() => {
 <template>
   <NuxtLink 
     class="link"
-    to="/">
+    :to="`/${slug}`">
     <div class="card">
       <img
         class="card-image" 
