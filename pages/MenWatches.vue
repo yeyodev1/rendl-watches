@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import TheHero from '@/components/TheHero.vue';
 import MenProducts from '@/components/watches/MenProducts.vue';
+import heroImage from '@/assets/images/heroMen.png';
 </script>
 
 <template>
   <TheHero 
-    image="https://i.pinimg.com/236x/43/76/7c/43767c8df6eb4870409ae00e96585f0c.jpg" 
+    :image="heroImage" 
     description="Relojes para hombre" />
   <MenProducts />
 </template>
