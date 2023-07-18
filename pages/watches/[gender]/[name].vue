@@ -1,35 +1,62 @@
 <script setup lang="ts">
-import TheProduct from '@/components/TheProduct.vue';
+import { onMounted } from 'vue';
+import { useRoute } from 'nuxt/app';
 import CrushButton from '@nabux-crush/crush-button';
-import InterestedProducts from '@/components/watches/InterestedProducts.vue';
 
-const details = [
-  {
-    detail: 'Cuero de ternera recien nacida'
-  },
-  {
-    detail: 'Cuero de ternera recien nacida'
-  },
-  {
-    detail: 'Cuero de ternera recien nacida'
-  },
-  {
-    detail: 'Cuero de ternera recien nacida'
-  },
-]
+import AllProducts from '@/components/watches/AllProducts.vue';
+import DetailProduct from '@/components/DetailProduct.vue';
+import TheProduct from '@/components/TheProduct.vue';
+import useWatchStore from '@/store/WatchStore';
+import { Watch } from '@/enum/Watch';
+
+const route = useRoute();
+const watchStore = useWatchStore();
+const imageSelected = ref('');
+
+function getImage(image: string) {
+  imageSelected.value = image;
+}
+
+async function getProduct() {
+  const gender = route.params.gender;
+  const name = route.params.name;
+  const slug = `${gender}/${name}`
+  await watchStore.getWatchBySlug(slug);
+}
+
+onMounted(async () => {
+  await watchStore.getWatches(Watch.WOMEN);
+  await getProduct();
+  if (watchStore.watch !== null) {
+    imageSelected.value = watchStore.watch.content.image[0].filename;
+  }
+});
+
 </script>
 
 <template>
   <div class="card">
     <div class="card-section">
       <TheProduct
-        aditionalImage="https://i.pinimg.com/236x/d4/e1/bd/d4e1bd8dd7c802aabc4fdca47961525a.jpg"
-        aditionalImage2="https://i.pinimg.com/236x/d4/e1/bd/d4e1bd8dd7c802aabc4fdca47961525a.jpg"
-        aditionalImage3="https://i.pinimg.com/236x/d4/e1/bd/d4e1bd8dd7c802aabc4fdca47961525a.jpg"
-        image="https://i.pinimg.com/236x/d4/e1/bd/d4e1bd8dd7c802aabc4fdca47961525a.jpg"
-        product="reloj de la muerte" 
-        price="500"
-        oldPrice="1000" />  
+        v-if="watchStore.watch !== null"
+        :image="imageSelected"
+        :product="watchStore.watch.content.name" 
+        :price="watchStore.watch.content.price"
+        :oldPrice="watchStore.watch.content?.old_price"
+        :slug="watchStore.watch.full_slug"/>
+      <div 
+        v-if="watchStore.watch !== null"
+        class="card-section-images">
+        <button
+          v-for="(image, index) in watchStore.watch.content.image"
+          :key="index"
+          @click="getImage(image.filename)">
+          <img
+            class="image"
+            :src="image.filename"
+            alt="">
+        </button>
+      </div>
       <CrushButton 
         class="card-section-button"
         variant="primary"
@@ -39,16 +66,16 @@ const details = [
       <p class="card-section2-title">
         CARACTERÍSTICAS
       </p>
-      <li
-        class="card-section2-detail"
-        v-for="(detail, index) in details"
-        :key="index"      
-        >
-        {{ detail.detail }}
-      </li>
+      <DetailProduct 
+        v-if="watchStore.watch !== null"
+        :brand="watchStore.watch.content.brand"
+        :type="watchStore.watch.content.type"
+        :material="watchStore.watch.content.material"
+        :code="watchStore.watch.content.casioCode"
+      />
     </div>
   </div>
-  <InterestedProducts />
+  <AllProducts title="Estos relojes te pueden interesar"/>
 </template>
 
 <style lang="scss" scoped>
@@ -66,6 +93,14 @@ const details = [
     gap: 40px;
     align-items: center;
     flex-direction: column;
+    &-images {
+      width: 100%;
+      display: flex;
+      max-width: 500px;
+      .image {
+        width: 120px;
+      }
+    }
     &-button {
       width: 100%;
       max-width: 208px;
@@ -82,10 +117,6 @@ const details = [
     &-title {
       font-weight: 700;
       font-size: $body-font-size;
-    }
-    &-detail {
-      color: $gray;
-      margin-top: 8px;
     }
   }
 }

@@ -30,7 +30,6 @@ const useWatchStore = defineStore('useWatchStore', {
     async getWatchBySlug(slug: string): Promise<void> {
       try {
         const response = await watchesService.getWatchBySlug(slug);
-        console.log(response)
         this.watch = response.data.story
       } catch (err) {
         console.error(err)

@@ -1,18 +1,6 @@
 <script setup lang="ts">
 
 const props = defineProps({
-  aditionalImage: {
-    type: String,
-    required: false,
-  },
-  aditionalImage2: {
-    type: String,
-    required: false,
-  },
-  aditionalImage3: {
-    type: String,
-    required: false,
-  },
   image: {
     type: String, 
     required: true,
@@ -37,35 +25,22 @@ const props = defineProps({
 
 const route = useRoute();
 const isWatchRouteDetail = computed(() => {
-  return route.path === '/watches/watch/*'
-})
+  return route.path === `/watches/${props.slug}`;
+});
+const routeDirection = computed(() => {
+  return isWatchRouteDetail.value ? '' : `/watches/${props.slug}`; 
+});
 </script>
 
 <template>
   <NuxtLink 
     class="link"
-    :to="`/watches/${slug}`">
+    :to="routeDirection">
     <div class="card">
       <img
         class="card-image" 
         :src="image" 
         alt="">
-      <div 
-        v-if="isWatchRouteDetail"
-        class="card-container-images">
-        <img
-          class="card-container-images-2"
-          :src="aditionalImage"
-          alt="">
-        <img 
-          class="card-container-images-3"
-          :src="aditionalImage2"
-          alt="">
-        <img 
-          class="card-container-images-4"
-          :src="aditionalImage3"
-          alt="">
-      </div>
       <div class="card-details">
         <p class="card-details-name">
           {{product}}
@@ -97,14 +72,6 @@ const isWatchRouteDetail = computed(() => {
     width: 100%;
     object-fit: cover;
     object-position: top center;
-  }
-  &-container-images {
-    display: flex;
-    gap: 5%;
-    &-2, &-3, &-4 {
-      width: 30%;
-      height: 88px;
-    }
   }
   &-details {
     display: flex;
