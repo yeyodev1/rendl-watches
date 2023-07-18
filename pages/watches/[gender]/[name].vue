@@ -85,11 +85,11 @@ onMounted(async () => {
   display: flex;
   gap: 40px;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   flex-wrap: wrap;
   &-section {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 40px;
     align-items: center;
     flex-direction: column;
