@@ -36,7 +36,7 @@ const props = defineProps({
 })
 
 const route = useRoute();
-const isWatchRoute = computed(() => {
+const isWatchRouteDetail = computed(() => {
   return route.path === '/watches/watch/*'
 })
 </script>
@@ -44,14 +44,14 @@ const isWatchRoute = computed(() => {
 <template>
   <NuxtLink 
     class="link"
-    :to="`watches/${slug}`">
+    :to="`/watches/${slug}`">
     <div class="card">
       <img
         class="card-image" 
         :src="image" 
         alt="">
       <div 
-        v-if="isWatchRoute"
+        v-if="isWatchRouteDetail"
         class="card-container-images">
         <img
           class="card-container-images-2"
