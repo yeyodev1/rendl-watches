@@ -23,8 +23,8 @@ function toggleMenu() {
     </button>
     <div class="header-options">
       <NuxtLink to="/">Inicio</NuxtLink>
-      <div class="header-relojes">Relojes <i class="fa-solid fa-arrow-down" /> 
-        <div class="header-relojes-content">
+      <div class="header-watches">Relojes <i class="fa-solid fa-arrow-down" /> 
+        <div class="header-watches-content">
           <NuxtLink to="/">Relojes de hombre</NuxtLink>
           <NuxtLink to="/">Relojes de mujer</NuxtLink>
         </div>
@@ -75,19 +75,21 @@ function toggleMenu() {
     }
   }
 
-  .header-relojes-content {
+  .header-watches-content {
     display: none;
     position: absolute;
     background-color: white;
     padding: 12px;
-    z-index: 1;
+    z-index: 10;
+    border-radius: 8px;
   }
 
-  .header-relojes:hover .header-relojes-content {
-    width: 100%;
+  .header-watches:hover .header-watches-content {
+    width: 150%;
     display: flex;
     flex-direction: column;
-    padding: 24px;
+    gap: 8px;
+    padding: 16px;
     right: 0;
   }
 }
