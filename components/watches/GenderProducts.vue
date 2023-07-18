@@ -1,12 +1,18 @@
 <script setup lang="ts">
 import { onMounted } from 'vue';
+import { useRoute } from 'nuxt/app';
 import useWatchStore from '@/store/WatchStore';
 import TheProduct from '@/components/TheProduct.vue';
 import { Watch } from '@/enum/Watch';
 
+const route = useRoute();
+
 const watchStore = useWatchStore();
+
+const gender = computed(() => route.path.includes(Watch.MEN) ? Watch.MEN : Watch.WOMEN)
+
 onMounted(async() => {
-  await watchStore.getWatches(Watch.WOMEN);
+  await watchStore.getWatches(gender.value);
 })
 </script>
 
@@ -14,7 +20,7 @@ onMounted(async() => {
   <div class="product">
     <div class="product-section">
       <TheProduct
-        v-for="(product, index) in watchStore.womanWatches"
+        v-for="(product, index) in watchStore.manWatches"
         :key="index"
         :image="product.content.image[0].filename"
         :product="product.content.name" 

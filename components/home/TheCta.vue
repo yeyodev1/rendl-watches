@@ -4,7 +4,7 @@ import CrushButton from '@nabux-crush/crush-button';
 
 <template>
   <div class="section">
-    <NuxtLink class="section-option option1" to="/womanwatches">
+    <NuxtLink class="section-option option1" to="/watches/women">
       <p class="option1-option">Mujer</p>
     </NuxtLink>
     <div class="section-calltoaction">
@@ -16,7 +16,7 @@ import CrushButton from '@nabux-crush/crush-button';
         text="Ver relojes"/>
       </NuxtLink>
     </div>
-    <NuxtLink class="section-option option2" to="/menwatches"> 
+    <NuxtLink class="section-option option2" to="/watches/men"> 
       <p class="option2-option" >hombre</p>
     </NuxtLink>
   </div>

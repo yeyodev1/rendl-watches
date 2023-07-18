@@ -9,11 +9,11 @@ const buttons = [
   },
   {
     name: 'Hombre',
-    link: '/menwatches',
+    link: '/watches/men',
   },
   {
     name: 'Mujer',
-    link: '/womanwatches',
+    link: '/watches/women',
   },
 ]
 

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useRoute } from 'nuxt/app';
 
 const props = defineProps({
   image: {
