@@ -100,6 +100,11 @@ onMounted(async () => {
       .image {
         width: 120px;
       }
+      button {
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
     }
     &-button {
       width: 100%;
