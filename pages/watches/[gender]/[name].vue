@@ -24,6 +24,14 @@ async function getProduct() {
   await watchStore.getWatchBySlug(slug);
 }
 
+function redirectToWs() {
+  if (watchStore.watch !== null) {
+    window.open(
+      `https://api.whatsapp.com/send?phone=593981163033&text=%F0%9F%98%80%20Hola!%20vengo%20de%20su%20web%20y%20quisiera%20saber%20m%C3%A1s%20sobre%20+${watchStore.watch.content.name}`
+    );
+  }
+}
+
 onMounted(async () => {
   await watchStore.getWatches(Watch.WOMEN);
   await getProduct();
@@ -60,7 +68,9 @@ onMounted(async () => {
       <CrushButton 
         class="card-section-button"
         variant="primary"
-        text="Contactanos"/>
+        text="Contactanos"
+        :disabled="watchStore.watch === null"
+        @click="redirectToWs" />
     </div>
     <div class="card-section2">
       <p class="card-section2-title">

@@ -63,7 +63,7 @@ function toggleMenu() {
   background-color: $white;
   &-close {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     &-button {
       background: transparent;
       padding: 16px;
@@ -75,7 +75,7 @@ function toggleMenu() {
   &-details {
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: flex-start;
     gap: 12px;
     &-link {
       &-button {
