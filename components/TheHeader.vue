@@ -16,51 +16,79 @@ function toggleMenu() {
         src="@/assets/images/logo.png" 
         alt="rendl importadora" />
     </NuxtLink>
-      <button 
-        class="header-menu"
-        @click="toggleMenu">
-        <i class="fa-solid fa-bars" />
-      </button>
-      <div class="header-options">
-        <NuxtLink to="/menwatches">Hombre</NuxtLink>
-        <NuxtLink to="/womanwatches">Mujer</NuxtLink>
+    <button 
+      class="header-menu"
+      @click="toggleMenu">
+      <i class="fa-solid fa-bars" />
+    </button>
+    <div class="header-options">
+      <NuxtLink to="/">Inicio</NuxtLink>
+      <div class="header-relojes">Relojes <i class="fa-solid fa-arrow-down" /> 
+        <div class="header-relojes-content">
+          <NuxtLink to="/">Relojes de hombre</NuxtLink>
+          <NuxtLink to="/">Relojes de mujer</NuxtLink>
+        </div>
       </div>
+    </div>
   </header>
 </template>
 
 <style lang="scss" scoped>
 .header {
+  padding: 0 24px;
   width: 100%;
   max-width: $desktop-upper-breakpoint;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   &-logo {
     height: 64px;
     padding: 12px;
   }
+
   &-menu {
     padding: 12px;
     background: none;
     border: none;
     text-decoration: none;
-    @media(min-width: $tablet-upper-breakpoint) {
+
+    @media (min-width: $tablet-upper-breakpoint) {
       display: none;
     }
   }
+
   &-options {
     display: none;
-    @media(min-width: $tablet-upper-breakpoint) {
+    position: relative;
+    @media (min-width: $tablet-upper-breakpoint) {
       display: flex;
       gap: 12px;
       padding: 12px;
     }
+
     * {
       text-decoration: none;
       color: $black;
       font-weight: 700;
     }
+  }
+
+  .header-relojes-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    padding: 12px;
+    z-index: 1;
+  }
+
+  .header-relojes:hover .header-relojes-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    right: 0;
   }
 }
 </style>
