@@ -10,6 +10,7 @@ const useWatchStore = defineStore('useWatchStore', {
     womanWatches: [],
     allWatches: [],
     offerWatches: [],
+    watch: null
   }),
   actions: {
     async getWatches(gender: string) {
@@ -24,6 +25,15 @@ const useWatchStore = defineStore('useWatchStore', {
         this.offerWatches = this.allWatches.filter(watch => watch.content.old_price)
       } catch (error) {
         console.error(error);
+      }
+    },
+    async getWatchBySlug(slug: string): Promise<void> {
+      try {
+        const response = await watchesService.getWatchBySlug(slug);
+        console.log(response)
+        this.watch = response.data.story
+      } catch (err) {
+        console.error(err)
       }
     }
   }
