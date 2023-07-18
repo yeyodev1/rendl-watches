@@ -9,18 +9,29 @@ const route = useRoute();
 
 const watchStore = useWatchStore();
 
-const gender = computed(() => route.path.includes(Watch.MEN) ? Watch.MEN : Watch.WOMEN)
+const gender = computed(() => {
+  return route.path.includes(Watch.MEN)
+    ? Watch.MEN
+    : Watch.WOMEN
+});
+const watches = computed(() => {
+  return route.path.includes(`/${Watch.MEN}`)
+    ? watchStore.manWatches
+    : watchStore.womanWatches
+});
 
 onMounted(async() => {
   await watchStore.getWatches(gender.value);
 })
+
+
 </script>
 
 <template>
   <div class="product">
     <div class="product-section">
       <TheProduct
-        v-for="(product, index) in watchStore.manWatches"
+        v-for="(product, index) in watches"
         :key="index"
         :image="product.content.image[0].filename"
         :product="product.content.name" 
