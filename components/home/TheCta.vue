@@ -17,7 +17,7 @@ import CrushButton from '@nabux-crush/crush-button';
       </NuxtLink>
     </div>
     <NuxtLink class="section-option option2" to="/watches/men"> 
-      <p class="option2-option" >hombre</p>
+      <p class="option2-option" >Hombre</p>
     </NuxtLink>
   </div>
 </template>
