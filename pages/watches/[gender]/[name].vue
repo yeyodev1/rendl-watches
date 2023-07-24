@@ -52,6 +52,12 @@ onMounted(async () => {
         :price="watchStore.watch.content.price"
         :oldPrice="watchStore.watch.content?.old_price"
         :slug="watchStore.watch.full_slug"/>
+      <CrushButton 
+        class="card-section-button"
+        variant="primary"
+        text="Contactanos"
+        :disabled="watchStore.watch === null"
+        @click="redirectToWs" />
       <div 
         v-if="watchStore.watch !== null"
         class="card-section-images">
@@ -65,12 +71,6 @@ onMounted(async () => {
             alt="">
         </button>
       </div>
-      <CrushButton 
-        class="card-section-button"
-        variant="primary"
-        text="Contactanos"
-        :disabled="watchStore.watch === null"
-        @click="redirectToWs" />
     </div>
     <div class="card-section2">
       <p class="card-section2-title">
