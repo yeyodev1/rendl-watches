@@ -23,7 +23,7 @@ function toggleMenu() {
     </button>
     <div class="header-options">
       <NuxtLink to="/">Inicio</NuxtLink>
-      <div class="header-watches">Relojes <i class="fa-solid fa-arrow-down" /> 
+      <div class="header-watches">Relojes <i class="fa-solid fa-chevron-down" /> 
         <div class="header-watches-content">
           <NuxtLink to="/watches/men">Relojes de hombre</NuxtLink>
           <NuxtLink to="/watches/woman">Relojes de mujer</NuxtLink>
