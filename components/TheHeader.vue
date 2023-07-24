@@ -71,7 +71,6 @@ function toggleMenu() {
     * {
       text-decoration: none;
       color: $black;
-      font-weight: 700;
     }
   }
 
