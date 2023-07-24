@@ -86,7 +86,8 @@ import CrushButton from '@nabux-crush/crush-button';
       color: $white;
       border: none;
       &:hover{
-        background-color: gray;
+        background-color: $gray;
+        border: none;
       }
     }
   }
