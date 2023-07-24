@@ -27,6 +27,7 @@ function toggleMenu() {
         <div class="header-watches-content">
           <NuxtLink to="/watches/men">Relojes de hombre</NuxtLink>
           <NuxtLink to="/watches/woman">Relojes de mujer</NuxtLink>
+          <NuxtLink to="/watches/">Todos los relojes</NuxtLink>
         </div>
       </div>
     </div>
